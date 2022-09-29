@@ -1,4 +1,4 @@
-package day16_notations;
+package tests.day16_notations;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -23,10 +23,10 @@ public class C04_DependsOnMethods extends TastBaseBeforeClassAfterClass {
      */
     @Test
     public void test01() {
-        driver.get("https://www.ramazon01.com");
+        driver.get("https://www.amazon.com");
     }
 
-    @Test(dependsOnMethods = "test01") // test02 test01'e bagli
+    @Test(dependsOnMethods = "test01",priority = 0) // test02 test01'e bagli
     public void test02() {
         WebElement aramaKutusu=driver.findElement(By.id("twotabsearchtextbox"));
         aramaKutusu.sendKeys("Nutella"+ Keys.ENTER);

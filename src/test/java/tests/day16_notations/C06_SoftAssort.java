@@ -1,4 +1,4 @@
-package day16_notations;
+package tests.day16_notations;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -45,5 +45,7 @@ public class C06_SoftAssort extends TestBaseBeforeAfterMethod {
         (Yani asserAll hardAsserdeki her bir assert gibidir, hatayi yakalarsa calisma durur.)
          */
         System.out.println("assertionlarda hata varsa burasi calismaz");
+
+
     }
 }
