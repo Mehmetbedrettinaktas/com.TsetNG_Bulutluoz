@@ -24,7 +24,7 @@ public class C03_PageClassKullanimi {
         facebookPage.passwordBox.sendKeys(faker.internet().password());
 
         // login butonuna basin
-        facebookPage.loginBox.click();
+        facebookPage.loginTusu.click();
 
         // giris yapilamadigini test edin.
         Assert.assertTrue(facebookPage.girilmadiYaziElementi.isDisplayed());

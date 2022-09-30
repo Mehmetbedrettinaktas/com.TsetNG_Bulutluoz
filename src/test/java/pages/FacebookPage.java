@@ -22,7 +22,7 @@ public class FacebookPage {
     public WebElement passwordBox;
 
     @FindBy(name = "login")
-    public WebElement loginBox;
+    public WebElement loginTusu;
 
     @FindBy(className = "_9ay7")
     public WebElement girilmadiYaziElementi;
