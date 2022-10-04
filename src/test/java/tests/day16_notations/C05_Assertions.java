@@ -8,7 +8,7 @@ import org.testng.annotations.Test;
 import utilities.TestBaseBeforeAfterMethod;
 
 public class C05_Assertions extends TestBaseBeforeAfterMethod {
-    @Test
+    @Test(groups = "grup2")
     public void test1() {
         //1. amazon ana sayfasina gidelim
         driver.get("https://www.amazon.com");

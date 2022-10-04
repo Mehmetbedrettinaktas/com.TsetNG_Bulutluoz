@@ -17,9 +17,9 @@ public class C02_ConfigRedearKullanimi {
         // cikarsa cookies kabul edin
         facebookPage.cookieButton.click();
         Thread.sleep(3000);
-        // kullanici mail kutusunua  yanlis kullanici bir isim yazdirin
+        // kullanici mail kutusunua  yanlis kullanici isim yazdirin
         facebookPage.mailKutusu.sendKeys(ConfigReader.getProperty("fcWrongUserName"));
-        // kullanici sifre kutusuna yanlis bir password yazdirin
+        // kullanici sifre kutusuna yanlis  password yazdirin
         facebookPage.passwordBox.sendKeys(ConfigReader.getProperty("fcWrongPassword"));
 
         Thread.sleep(3000);

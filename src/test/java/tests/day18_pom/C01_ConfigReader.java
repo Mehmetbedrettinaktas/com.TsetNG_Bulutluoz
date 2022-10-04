@@ -9,6 +9,7 @@ public class C01_ConfigReader {
     @Test
     public void test01() {
         Driver.getDriver().get(ConfigReader.getProperty("amazonUrl"));
+        // ConfigReader class'indan git getProperty() methodunu kullanarak amazonUrl'in karsiligini getir
         Driver.getDriver().get(ConfigReader.getProperty("facebookUrl"));
     }
 }

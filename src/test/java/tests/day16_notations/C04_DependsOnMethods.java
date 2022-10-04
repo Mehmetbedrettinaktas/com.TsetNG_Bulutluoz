@@ -21,7 +21,7 @@ public class C04_DependsOnMethods extends TastBaseBeforeClassAfterClass {
     sadece bagli olan test, baglandig testin sonucuna bakar
     baglandigi test PASSED olamzsa, baglanan test hic calismaz(ignore) .
      */
-    @Test
+    @Test(groups = {"grup1", "grup2"})
     public void test01() {
         driver.get("https://www.amazon.com");
     }

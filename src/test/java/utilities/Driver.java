@@ -16,8 +16,21 @@ public class Driver {
     POM'de Driver icin TastBase class'ina extends etmek yerine Driver
     class'indan static method'lar kullanarak driver olusturup,
     ilgili ayarlarin yapilmasi ve en sonunda driver'in
-    kapatilmasi tercih edilir.
+    kapatilmasi tercih edilmistir.
+
+    POM'de Driver class'indaki getDriver()'nin obje olusturularak kullanilmasini
+    engellemek icin Singleton pattern kullanimi benimsenmistir.
+
+    Singleton Pattern : tekil kullanim, bir class'in farkli class'lardan obje
+    olusturularak kullanimini engellemek icin kullanilir.
+
+    Bunu saglamak icin yapmamiz gereken sey oldukca basit obje olusturmak icin
+    kullanilan constractor'i private yaptigimizda baska classlarda
+    Driver class'indan obje olusturlmasi mumkun olmaz.
     */
+    private Driver(){
+
+    }
     static WebDriver driver;
 
     public static WebDriver getDriver() {
@@ -40,7 +53,7 @@ public class Driver {
                     WebDriverManager.chromedriver().setup();
                     driver = new ChromeDriver(new ChromeOptions().setHeadless(true));
                     break;
-                case "Edge":
+                case "edge":
                     WebDriverManager.edgedriver().setup();
                     driver = new EdgeDriver();
                 default:
