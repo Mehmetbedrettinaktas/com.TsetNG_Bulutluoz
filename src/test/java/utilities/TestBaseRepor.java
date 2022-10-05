@@ -9,8 +9,10 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
-public class TestBaseRepor {
+public abstract class TestBaseRepor {
     protected static ExtentReports extentReports; //extent report'a ilk atamayi yapar
     protected static ExtentTest extentTest; // test pass veya failed gibi bilgileri kaydeder. Ayrica ekran resmi icin de kullaniriz
     protected static ExtentHtmlReporter extentHtmlReporter; // Html raporu duzenler
@@ -20,7 +22,8 @@ public class TestBaseRepor {
     public void setUpTest() {
         extentReports = new ExtentReports();
         //rapor oluştuktan sonra raporunuz nereye eklensin istiyorsanız buraya yazıyorsunuz.
-        String filePath = System.getProperty("user.dir") + "/raporlar/Rapor.html";
+        String date= new SimpleDateFormat("yyyyMMddhhmmss").format(new Date()); // benzersiz olmasi icin tarih formati ekledik
+        String filePath = System.getProperty("user.dir") + "/target/Rapor/rapor"+date +".html";
         //oluşturmak istediğimiz raporu (html formatında) başlatıyoruz, filePath ile dosya yolunu belirliyoruz.
         extentHtmlReporter = new ExtentHtmlReporter(filePath);
         extentReports.attachReporter(extentHtmlReporter);
@@ -29,8 +32,8 @@ public class TestBaseRepor {
         extentReports.setSystemInfo("Enviroment","QA");
         extentReports.setSystemInfo("Browser", ConfigReader.getProperty("browser")); // chrome, firefox
         extentReports.setSystemInfo("Automation Engineer", "Mehmet");
-        extentHtmlReporter.config().setDocumentTitle("window handle testi");
-        extentHtmlReporter.config().setReportName("window handle testi");
+        extentHtmlReporter.config().setDocumentTitle("Rapor");
+        extentHtmlReporter.config().setReportName("TestNG Reports");
     }
 
 
@@ -38,7 +41,7 @@ public class TestBaseRepor {
     @AfterMethod(alwaysRun = true)
     public void tearDownMethod(ITestResult result) throws IOException {
 
-        if (result.getStatus() == ITestResult.FAILURE) { // eğer testin sonucu başarısızsa
+        if (result.getStatus() == ITestResult.FAILURE) { // eğer testin sonucu başarısızsa onun Fotografini cekiyoruz
 
             String screenshotLocation = ResuableMethods.getScreenshot(result.getName());
             extentTest.fail(result.getName());

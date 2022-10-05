@@ -1,0 +1,9 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="tum testleri calistirma" verbose="3" parallel="classes" thread-count="2">
+    <!-- verson  paralel testi classlarda calistiriyoruz thread-count  browser saysini belirtiyoruz-->
+    <test name="regression test">
+        <packages>
+            <package name="tests.*"/>
+        </packages>
+    </test>
+</suite>
